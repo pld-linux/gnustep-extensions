@@ -2,15 +2,18 @@ Summary:	GNUstep Foundation Extensions Library
 Summary(pl):	Biblioteka rozszerzeñ GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
 # Source0-md5:	7cce1455ab9319c980c204d11c481874
 Patch0:		%{name}-missing.patch
+Patch1:		%{name}-gcc33.patch
+Patch2:		%{name}-fs.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	autoconf
-BuildRequires:	gnustep-base-devel
+BuildRequires:	gnustep-base-devel >= 1.7.0
+Requires:	gnustep-base >= 1.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/lib/GNUstep
@@ -54,11 +57,13 @@ Pliki nag³ówkowe dla biblioteki rozszerzeñ GNUstep Foundation.
 
 %prep
 %setup -q -n extensions-%{version}
-%patch -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
-. %{_prefix}/System/Makefiles/GNUstep.sh
-cp -f %{_prefix}/System/Makefiles/config.* .
+. %{_prefix}/System/Library/Makefiles/GNUstep.sh
+cp -f %{_prefix}/System/Library/Makefiles/config.* .
 %{__autoconf}
 %configure
 
@@ -67,7 +72,7 @@ cp -f %{_prefix}/System/Makefiles/config.* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-. %{_prefix}/System/Makefiles/GNUstep.sh
+. %{_prefix}/System/Library/Makefiles/GNUstep.sh
 
 %{__make} install \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
@@ -81,11 +86,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog NEWS README
-%attr(755,root,root) %{_prefix}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
+%attr(755,root,root) %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/System/Headers/gnustep/extensions
-%{_prefix}/System/Headers/gnustep/objc
-%{_prefix}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
-%{_prefix}/System/Makefiles/extensions.make
+%{_prefix}/System/Library/Headers/gnustep/extensions
+%{_prefix}/System/Library/Headers/gnustep/objc
+%{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
+%{_prefix}/System/Library/Makefiles/Additional/extensions.make

@@ -1,0 +1,53 @@
+--- extensions-0.8.6/extensions/GNUmakefile.orig	2003-07-20 14:41:42.000000000 +0200
++++ extensions-0.8.6/extensions/GNUmakefile	2003-07-20 14:49:47.000000000 +0200
+@@ -23,8 +23,6 @@
+ 
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ../Version
+--- extensions-0.8.6/extensions/GNUmakefile.preamble.orig	2000-02-22 22:42:44.000000000 +0100
++++ extensions-0.8.6/extensions/GNUmakefile.preamble	2003-07-20 14:52:31.000000000 +0200
+@@ -68,5 +68,5 @@
+ 
+ # Additional directories to be created during installation
+ ADDITIONAL_INSTALL_DIRS = \
+-  $(GNUSTEP_INSTALLATION_DIR)/Headers/$(GNUSTEP_FND_DIR)/objc \
+-  $(GNUSTEP_INSTALLATION_DIR)/Headers/$(GNUSTEP_FND_DIR)/extensions/exceptions
++  $(GNUSTEP_HEADERS)/$(GNUSTEP_FND_DIR)/objc \
++  $(GNUSTEP_HEADERS)/$(GNUSTEP_FND_DIR)/extensions/exceptions
+--- extensions-0.8.6/GNUmakefile.orig	2000-02-22 22:42:38.000000000 +0100
++++ extensions-0.8.6/GNUmakefile	2003-07-20 14:46:10.000000000 +0200
+@@ -23,8 +23,6 @@
+ 
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ./Version
+--- extensions-0.8.6/GNUmakefile.postamble.orig	2000-02-22 22:42:38.000000000 +0100
++++ extensions-0.8.6/GNUmakefile.postamble	2003-07-20 14:48:39.000000000 +0200
+@@ -42,15 +42,15 @@
+ 
+ # Things to do after installing
+ after-install::
+-	$(MKDIRS) $(GNUSTEP_INSTALLATION_DIR)/Makefiles
+-	$(INSTALL_DATA) extensions.make $(GNUSTEP_INSTALLATION_DIR)/Makefiles
++	$(MKDIRS) $(GNUSTEP_LIBRARY)/Makefiles/Additional
++	$(INSTALL_DATA) extensions.make $(GNUSTEP_LIBRARY)/Makefiles/Additional
+ 
+ # Things to do before uninstalling
+ # before-uninstall::
+ 
+ # Things to do after uninstalling
+ after-uninstall::
+-	rm $(GNUSTEP_INSTALLATION_DIR)/Makefiles/extensions.make
++	rm $(GNUSTEP_LIBRARY)/Makefiles/Additional/extensions.make
+ 
+ # Things to do before cleaning
+ # before-clean::
