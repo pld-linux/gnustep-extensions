@@ -1,0 +1,13 @@
+--- extensions-0.8.6/extensions/GNUmakefile.orig	Tue Feb 22 22:42:44 2000
++++ extensions-0.8.6/extensions/GNUmakefile	Wed Jan  1 15:53:20 2003
+@@ -64,6 +64,10 @@
+     endif
+ endif
+ 
++ifeq ($(OBJC_RUNTIME_LIB), gnu)
++  ADDITIONAL_MFILES += behavior.m
++endif
++
+ OBJC_MFILES = \
+ objc/HashTable.m \
+ objc/List.m \

@@ -4,9 +4,9 @@ Name:		gnustep-extensions
 Version:	0.8.6
 Release:	1
 License:	BSD-like
-Vendor:		The GNUstep Project
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
+Patch0:		%{name}-missing.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	autoconf
 BuildRequires:	gnustep-base-devel
@@ -53,6 +53,7 @@ Pliki nag³ówkowe dla biblioteki rozszerzeñ GNUstep Foundation.
 
 %prep
 %setup -q -n extensions-%{version}
+%patch -p1
 
 %build
 . %{_prefix}/System/Makefiles/GNUstep.sh
