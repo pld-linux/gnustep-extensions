@@ -5,6 +5,7 @@ Release:	1
 License:	BSD
 Vendor:		The Seawood Project
 Group:		Development
+Group(de):	Entwicklung
 Group(pl):	Programowanie
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
 URL:		http://www.gnustep.org/
@@ -28,7 +29,7 @@ This package is built with library-combo gnu-gnu-gnu-xraw.
 if [ -z "$GNUSTEP_SYSTEM_ROOT" ]; then
    . %{_prefix}/GNUstep/Makefiles/GNUstep.sh 
 fi
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix}/GNUstep --with-library-combo=gnu-gnu-gnu-xraw
+CFLAGS="%{rpmcflags}" ./configure --prefix=%{_prefix}/GNUstep --with-library-combo=gnu-gnu-gnu-xraw
 %{__make}
 
 %install
@@ -48,6 +49,9 @@ cat > filelist.rpm.in << EOF
 EOF
 
 sed -e "s|GSARCH|${GNUSTEP_HOST_CPU}|" -e "s|GSOS|${GNUSTEP_HOST_OS}|" < filelist.rpm.in > filelist.rpm
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
