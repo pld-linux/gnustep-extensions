@@ -1,4 +1,5 @@
 Summary:	GNUstep Foundation Extensions Library
+Summary(pl):	Biblioteka rozszerzeÒ GNUstep
 Name:		gnustep-extensions
 Version:	0.8.5
 Release:	1
@@ -6,7 +7,11 @@ License:	BSD
 Vendor:		The Seawood Project
 Group:		Development
 Group(de):	Entwicklung
+Group(es):	Desarrollo
 Group(pl):	Programowanie
+Group(pt_BR):	Desenvolvimento
+Group(ru):	Ú¡⁄“¡¬œ‘À¡
+Group(uk):	Úœ⁄“œ¬À¡
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
 URL:		http://www.gnustep.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,6 +26,13 @@ printf-like arguments and two classes for portable archiving and
 unarchiving Objective-C data.
 
 This package is built with library-combo gnu-gnu-gnu-xraw.
+
+%description -l pl
+Ten pakiet zawiera trochÍ klas rozszerzaj±cych podstawowe moøliwo∂ci
+klas poprzez. Te rozszerzenia to rozszerzona obs≥uga wyj±tkÛw, garbage
+collector, klasy pozwalaj±ce ≥atwo tworzyÊ metody akceptuj±ce
+argumenty w stylu printf i dwie klasy do przeno∂nego pakowania i
+rozpakowywania danych Objective-C.
 
 %prep
 %setup -q -n extensions-%{ver}
