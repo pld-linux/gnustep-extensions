@@ -2,7 +2,7 @@ Summary:	GNUstep Foundation Extensions Library
 Summary(pl):	Biblioteka rozszerzeñ GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
@@ -12,8 +12,8 @@ Patch1:		%{name}-gcc33.patch
 Patch2:		%{name}-fs.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	autoconf
-BuildRequires:	gnustep-base-devel >= 1.7.0
-Requires:	gnustep-base >= 1.7.0
+BuildRequires:	gnustep-base-devel >= 1.7.3
+Requires:	gnustep-base >= 1.7.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/lib/GNUstep
@@ -47,7 +47,7 @@ Summary:	Header files for GNUstep Foundation Extensions library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki rozszerzeñ GNUstep Foundation
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	gnustep-base-devel
+Requires:	gnustep-base-devel >= 1.7.3
 
 %description devel
 Header files for GNUstep Foundation Extensions library.
@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/System/Library/Headers/gnustep/extensions
-%{_prefix}/System/Library/Headers/gnustep/objc
+%{_prefix}/System/Library/Headers/%{libcombo}/gnustep/extensions
+%{_prefix}/System/Library/Headers/%{libcombo}/gnustep/objc
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
 %{_prefix}/System/Library/Makefiles/Additional/extensions.make
