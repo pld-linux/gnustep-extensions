@@ -9,6 +9,15 @@
  include $(GNUSTEP_MAKEFILES)/common.make
  
  include ../Version
+@@ -88,7 +86,7 @@
+ #MFILES += 
+ 
+ libFoundationExt_HEADER_FILES_DIR = .
+-libFoundationExt_HEADER_FILES_INSTALL_DIR = /$(GNUSTEP_FND_DIR)/extensions
++libFoundationExt_HEADER_FILES_INSTALL_DIR = /gnustep/extensions
+ 
+ HFILES = $(MFILES:.m=.h)
+ EXCEPTION_HFILES = $(EXCEPTION_MFILES:.m=.h)
 --- extensions-0.8.6/extensions/GNUmakefile.preamble.orig	2000-02-22 22:42:44.000000000 +0100
 +++ extensions-0.8.6/extensions/GNUmakefile.preamble	2003-07-20 14:52:31.000000000 +0200
 @@ -68,5 +68,5 @@
@@ -17,8 +26,8 @@
  ADDITIONAL_INSTALL_DIRS = \
 -  $(GNUSTEP_INSTALLATION_DIR)/Headers/$(GNUSTEP_FND_DIR)/objc \
 -  $(GNUSTEP_INSTALLATION_DIR)/Headers/$(GNUSTEP_FND_DIR)/extensions/exceptions
-+  $(GNUSTEP_HEADERS)/$(GNUSTEP_FND_DIR)/objc \
-+  $(GNUSTEP_HEADERS)/$(GNUSTEP_FND_DIR)/extensions/exceptions
++  $(GNUSTEP_HEADERS)/gnustep/objc \
++  $(GNUSTEP_HEADERS)/gnustep/extensions/exceptions
 --- extensions-0.8.6/GNUmakefile.orig	2000-02-22 22:42:38.000000000 +0100
 +++ extensions-0.8.6/GNUmakefile	2003-07-20 14:46:10.000000000 +0200
 @@ -23,8 +23,6 @@
@@ -47,7 +56,62 @@
  # Things to do after uninstalling
  after-uninstall::
 -	rm $(GNUSTEP_INSTALLATION_DIR)/Makefiles/extensions.make
-+	rm $(GNUSTEP_LIBRARY)/Makefiles/Additional/extensions.make
++	rm $(GNUSTEP_LIBRARY)/Makefiles/extensions.make
  
  # Things to do before cleaning
  # before-clean::
+--- extensions-0.8.6/extensions/objc/HashTable.m.orig	2000-02-22 22:42:48.000000000 +0100
++++ extensions-0.8.6/extensions/objc/HashTable.m	2004-07-04 18:34:44.081263374 +0200
+@@ -20,7 +20,7 @@
+    */ 
+ 
+ /* #include <config.h> */
+-#include <base/preface.h>
++#include <GNUstepBase/preface.h>
+ #include <objc/HashTable.h>
+ 
+ #define DEFAULT_HASH_CAPACITY 32
+--- extensions-0.8.6/extensions/objc/List.m.orig	2000-02-22 22:42:49.000000000 +0100
++++ extensions-0.8.6/extensions/objc/List.m	2004-07-04 18:34:34.925462531 +0200
+@@ -22,7 +22,7 @@
+    */ 
+ 
+ /* #include <config.h> */
+-#include <base/preface.h>
++#include <GNUstepBase/preface.h>
+ #include <objc/List.h>
+ 
+ /* Change this #define to 0 if you want -makeObjectsPerform: and 
+--- extensions-0.8.6/extensions/objc/NXStringTable.m.orig	2000-02-22 22:42:49.000000000 +0100
++++ extensions-0.8.6/extensions/objc/NXStringTable.m	2004-07-04 18:34:24.885873969 +0200
+@@ -31,7 +31,7 @@
+ #include <config.h>
+ #include <stdio.h>
+ #include <string.h>
+-#include <base/preface.h>
++#include <GNUstepBase/preface.h>
+ #include <objc/NXStringTable.h>
+ 
+ char *
+--- extensions-0.8.6/extensions/objc/Storage.m.orig	2000-02-22 22:42:50.000000000 +0100
++++ extensions-0.8.6/extensions/objc/Storage.m	2004-07-04 18:33:58.576193372 +0200
+@@ -23,7 +23,7 @@
+ 
+ /* #include <config.h> */
+ #include <objc/Storage.h>
+-#include <base/preface.h>
++#include <GNUstepBase/preface.h>
+ /* memcpy() and memcmp() are gcc builtin's */
+ 
+ /* Deal with bzero: */
+--- extensions-0.8.6/objc/HashTable.h.orig	2000-02-22 22:42:50.000000000 +0100
++++ extensions-0.8.6/objc/HashTable.h	2004-07-04 18:35:58.186463881 +0200
+@@ -29,7 +29,7 @@
+ #define __HashTable_h_INCLUDE_GNU
+ 
+ #include <objc/Object.h>
+-#include <base/preface.h>
++#include <GNUstepBase/preface.h>
+ #include <objc/hash.h>
+ 
+ typedef node_ptr NXHashState;
