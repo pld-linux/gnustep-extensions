@@ -38,8 +38,8 @@
  after-install::
 -	$(MKDIRS) $(GNUSTEP_INSTALLATION_DIR)/Makefiles
 -	$(INSTALL_DATA) extensions.make $(GNUSTEP_INSTALLATION_DIR)/Makefiles
-+	$(MKDIRS) $(GNUSTEP_LIBRARY)/Makefiles/Additional
-+	$(INSTALL_DATA) extensions.make $(GNUSTEP_LIBRARY)/Makefiles/Additional
++	$(MKDIRS) $(GNUSTEP_LIBRARY)/Makefiles
++	$(INSTALL_DATA) extensions.make $(GNUSTEP_LIBRARY)/Makefiles
  
  # Things to do before uninstalling
  # before-uninstall::
