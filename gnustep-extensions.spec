@@ -1,7 +1,7 @@
 Summary:	GNUstep Foundation Extensions Library
 Summary(pl):	Biblioteka rozszerzeñ GNUstep
 Name:		gnustep-extensions
-Version:	0.8.6
+Version:	0.8.5
 Release:	1
 License:	BSD
 Vendor:		The Seawood Project
@@ -29,7 +29,7 @@ argumenty w stylu printf i dwie klasy do przeno¶nego pakowania i
 rozpakowywania danych Objective-C.
 
 %prep
-%setup -q -n extensions-%{version}
+%setup -q -n extensions-%{ver}
 
 %build
 if [ -z "$GNUSTEP_SYSTEM_ROOT" ]; then
