@@ -2,7 +2,7 @@ Summary:	GNUstep Foundation Extensions Library
 Summary(pl):	Biblioteka rozszerzeñ GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
-Release:	4
+Release:	5
 License:	BSD-like
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
@@ -12,11 +12,11 @@ Patch1:		%{name}-gcc33.patch
 Patch2:		%{name}-fs.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	autoconf
-BuildRequires:	gnustep-base-devel >= 1.7.3
-Requires:	gnustep-base >= 1.7.3
+BuildRequires:	gnustep-base-devel >= 1.9.0
+Requires:	gnustep-base >= 1.9.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/lib/GNUstep
+%define         _prefix         /usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
@@ -24,7 +24,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
 
 %description
@@ -46,7 +46,7 @@ rozpakowywania danych Objective-C.
 Summary:	Header files for GNUstep Foundation Extensions library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki rozszerzeñ GNUstep Foundation
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-base-devel >= 1.7.3
 
 %description devel
@@ -65,7 +65,9 @@ Pliki nag³ówkowe dla biblioteki rozszerzeñ GNUstep Foundation.
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 cp -f %{_prefix}/System/Library/Makefiles/config.* .
 %{__autoconf}
-%configure
+# test for broken __builtin_apply hangs on amd64
+%configure \
+	ac_cv_broken_builtin_apply=no
 
 %{__make} \
 	messages=yes
