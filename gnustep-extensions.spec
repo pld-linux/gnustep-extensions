@@ -6,12 +6,6 @@ Release:	1
 License:	BSD
 Vendor:		The Seawood Project
 Group:		Development
-Group(de):	Entwicklung
-Group(es):	Desarrollo
-Group(pl):	Programowanie
-Group(pt_BR):	Desenvolvimento
-Group(ru):	Разработка
-Group(uk):	Розробка
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
 URL:		http://www.gnustep.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
