@@ -29,7 +29,7 @@ if [ -z "$GNUSTEP_SYSTEM_ROOT" ]; then
    . %{_prefix}/GNUstep/Makefiles/GNUstep.sh 
 fi
 CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix}/GNUstep --with-library-combo=gnu-gnu-gnu-xraw
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
