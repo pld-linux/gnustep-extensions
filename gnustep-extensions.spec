@@ -6,6 +6,7 @@ Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
+# Source0-md5:	7cce1455ab9319c980c204d11c481874
 Patch0:		%{name}-missing.patch
 URL:		http://www.gnustep.org/
 BuildRequires:	autoconf
