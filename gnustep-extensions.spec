@@ -2,7 +2,7 @@ Summary:	GNUstep Foundation Extensions Library
 Summary(pl):	Biblioteka rozszerzeñ GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
-Release:	6
+Release:	7
 License:	BSD-like
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/extensions-%{version}.tar.gz
@@ -69,14 +69,14 @@ cp -f %{_prefix}/System/Library/Makefiles/config.* .
 %configure \
 	ac_cv_broken_builtin_apply=no
 
-%{__make} \
+%{__make} -j1 \
 	messages=yes
 
 %install
 rm -rf $RPM_BUILD_ROOT
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 
-%{__make} install \
+%{__make} -j1 install \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
 
 %clean
