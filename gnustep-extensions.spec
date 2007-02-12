@@ -1,5 +1,5 @@
 Summary:	GNUstep Foundation Extensions Library
-Summary(pl):	Biblioteka rozszerzeÒ GNUstep Foundation
+Summary(pl.UTF-8):   Biblioteka rozszerze≈Ñ GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
 Release:	7
@@ -35,16 +35,16 @@ classes that allow you to easily create methods that accept
 printf-like arguments and two classes for portable archiving and
 unarchiving Objective-C data.
 
-%description -l pl
-Ten pakiet zawiera trochÍ klas rozszerzaj±cych podstawowe moøliwo∂ci
-klas poprzez. Te rozszerzenia to rozszerzona obs≥uga wyj±tkÛw, garbage
-collector, klasy pozwalaj±ce ≥atwo tworzyÊ metody akceptuj±ce
-argumenty w stylu printf i dwie klasy do przeno∂nego pakowania i
+%description -l pl.UTF-8
+Ten pakiet zawiera trochƒô klas rozszerzajƒÖcych podstawowe mo≈ºliwo≈õci
+klas poprzez. Te rozszerzenia to rozszerzona obs≈Çuga wyjƒÖtk√≥w, garbage
+collector, klasy pozwalajƒÖce ≈Çatwo tworzyƒá metody akceptujƒÖce
+argumenty w stylu printf i dwie klasy do przeno≈õnego pakowania i
 rozpakowywania danych Objective-C.
 
 %package devel
 Summary:	Header files for GNUstep Foundation Extensions library
-Summary(pl):	Pliki nag≥Ûwkowe dla biblioteki rozszerzeÒ GNUstep Foundation
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla biblioteki rozszerze≈Ñ GNUstep Foundation
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-base-devel >= 1.7.3
@@ -52,8 +52,8 @@ Requires:	gnustep-base-devel >= 1.7.3
 %description devel
 Header files for GNUstep Foundation Extensions library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe dla biblioteki rozszerzeÒ GNUstep Foundation.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe dla biblioteki rozszerze≈Ñ GNUstep Foundation.
 
 %prep
 %setup -q -n extensions-%{version}
