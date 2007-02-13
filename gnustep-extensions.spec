@@ -1,5 +1,5 @@
 Summary:	GNUstep Foundation Extensions Library
-Summary(pl.UTF-8):   Biblioteka rozszerzeń GNUstep Foundation
+Summary(pl.UTF-8):	Biblioteka rozszerzeń GNUstep Foundation
 Name:		gnustep-extensions
 Version:	0.8.6
 Release:	7
@@ -44,7 +44,7 @@ rozpakowywania danych Objective-C.
 
 %package devel
 Summary:	Header files for GNUstep Foundation Extensions library
-Summary(pl.UTF-8):   Pliki nagłówkowe dla biblioteki rozszerzeń GNUstep Foundation
+Summary(pl.UTF-8):	Pliki nagłówkowe dla biblioteki rozszerzeń GNUstep Foundation
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-base-devel >= 1.7.3
